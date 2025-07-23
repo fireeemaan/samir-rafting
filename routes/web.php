@@ -1,10 +1,14 @@
 <?php
 
 use App\Livewire\Booking\BookingForm;
+use App\Livewire\LandingPage;
 use Illuminate\Support\Facades\Route;
+use App\Models\Package;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/booking', BookingForm::class)->name('booking');
+Route::get('/', LandingPage::class);
+
+Route::get('/booking/{package}', BookingForm::class)->name('booking');

@@ -31,21 +31,31 @@ class PackageResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name')
-                    ->required(),
+                    ->required()
+                    ->lazy()
+                    ->afterStateUpdated(fn ($state, callable $set) =>
+                        $set('slug', Package::generateUniqueSlug($state))
+                    ),
 
                 TextInput::make('slug')
                     ->required()
                     ->unique(ignoreRecord: true),
 
                 TextInput::make('price')
+                    ->mask(RawJs::make(" \$money(\$input, '.', ',', 0)"))
+                    ->stripCharacters(['.', ','])
                     ->numeric()
-                    ->required()
-                    ->step('0.01'),
+                    ->required(),
 
                 TextInput::make('description')
                     ->required(),
 
-
+                Repeater::make('facilities')
+                    ->schema([
+                        TextInput::make('facility')->required()
+                    ])
+                    ->columnSpan(2)
+                    ->addActionLabel('Add new facility')
             ]);
     }
 

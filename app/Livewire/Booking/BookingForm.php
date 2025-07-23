@@ -2,21 +2,13 @@
 
 namespace App\Livewire\Booking;
 
+use App\Models\Package;
 use Livewire\Component;
 
 class BookingForm extends Component
 {
 
-    public $name, $email, $phone, $paket = '', $jumlah = 1, $tanggal;
-    public $hargaPerPax = 0;
-
-    public function updatedPaket($value) {
-        $this->hargaPerPax = match ($value) {
-            'paket5' => 175000,
-            'paket7' => 200000,
-            default => 0,
-        };
-    }
+    public Package $package;
 
     public function getTotalProperty() {
         return $this->jumlah * $this->hargaPerPax;

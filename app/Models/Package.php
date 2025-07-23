@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class Package extends Model
 {
@@ -12,7 +13,30 @@ class Package extends Model
         'slug',
         'price',
         'description',
+        'facilities'
     ];
+
+    protected $casts = [
+        'facilities' => 'array'
+    ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public static function generateUniqueSlug($name) {
+        $slug = Str::slug($name);
+        $original = $slug;
+        $i = 1;
+
+        while (self::where('slug', $slug)->exists()) {
+            $slug = $original . '-' . $i;
+            $i++;
+        }
+
+        return $slug;
+    }
 
     public function bookings(): HasMany
     {

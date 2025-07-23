@@ -55,8 +55,8 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-            // ->collapsibleNavigationGroups(false)
-            // ->renderHook('panels::body.end', fn (): string => Blade::render("@vite(['resources/css/app.css', 'resources/js/app.js'])"))
+            ->collapsibleNavigationGroups(false)
+            ->renderHook('panels::body.end', fn (): string => Blade::render("@vite(['resources/css/app.css', 'resources/js/app.js'])"))
             ;
     }
 }
