@@ -13,6 +13,7 @@ class Package extends Model
         'slug',
         'price',
         'description',
+        'thumbnail',
         'facilities'
     ];
 

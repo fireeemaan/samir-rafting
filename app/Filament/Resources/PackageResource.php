@@ -6,6 +6,7 @@ use App\Filament\Resources\PackageResource\Pages;
 use App\Filament\Resources\PackageResource\RelationManagers;
 use App\Models\Package;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -49,6 +50,10 @@ class PackageResource extends Resource
 
                 TextInput::make('description')
                     ->required(),
+
+                FileUpload::make("thumbnail")
+                    ->image()
+                    ->previewable(false),
 
                 Repeater::make('facilities')
                     ->schema([

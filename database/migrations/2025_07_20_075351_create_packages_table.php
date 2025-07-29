@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->decimal('price');
             $table->text('description');
+            $table->string('thumbnail');
             $table->json('facilities');
             $table->timestamps();
         });

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="scroll-smooth">
 <head>
     <title>@yield('title')</title>
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
