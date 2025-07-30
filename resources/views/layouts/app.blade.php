@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html class="scroll-smooth">
 <head>
-    <title>@yield('title')</title>
+    <title>{{ $title ?? "Samir Rafting" }}</title>
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
 </head>
 <body>
     <div class="container bg-white text-gray-800 font-sans">
-        @yield('content')
+        {{ $slot }}
     </div>
+    @livewireScripts
 </body>
 </html>

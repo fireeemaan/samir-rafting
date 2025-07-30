@@ -9,9 +9,11 @@ class BookingForm extends Component
 {
 
     public Package $package;
+    public $jumlah = 1;
+    public $tanggal, $nama, $email, $hp;
 
     public function getTotalProperty() {
-        return $this->jumlah * $this->hargaPerPax;
+        return $this->jumlah * $this->package->price;
     }
 
     public function submit() {
@@ -31,6 +33,6 @@ class BookingForm extends Component
     public function render()
     {
         return view('livewire.booking.booking-form')
-            ->layout('layouts.app');
+            ->layout('layouts.app', ['title' => 'Booking']);
     }
 }
