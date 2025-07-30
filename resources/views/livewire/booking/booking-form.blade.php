@@ -1,4 +1,10 @@
-<div class="flex w-full min-h-[100vh] items-center justify-center">
+<div class="flex flex-col w-fit  min-h-[100vh] items-center justify-center gap-2">
+    <div class="flex w-full">
+        <a href="{{ route('home') }}" class="text-lg font-semibold flex flex-row items-center gap-2 cursor-pointer">
+            <x-heroicon-s-arrow-left class="size-6"/>
+            Back
+        </a>
+    </div>
     <div
         class="w-full max-w-5xl bg-white rounded-2xl shadow-xl grid grid-cols-1 md:grid-cols-2 gap-8 p-8 border border-black/10">
         <!-- Detail Paket -->
@@ -16,9 +22,9 @@
                 <h3 class="font-semibold text-gray-800 mb-2">
                     Fasilitas Termasuk:
                 </h3>
-                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 list-disc list-inside text-gray-600">
                     @foreach ($package->facilities ?? [] as $facility)
-                        <li>{{ $facility['facility'] ?? '' }}</li>
+                        <li class="w-full truncate">{{ $facility['facility'] ?? '' }}</li>
                     @endforeach
                 </ul>
             </div>

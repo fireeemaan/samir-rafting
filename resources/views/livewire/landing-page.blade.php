@@ -1,5 +1,4 @@
-<div>
-
+<div class="flex flex-col w-full">
     <section class="bg-cover bg-center h-screen relative"
         style="background-image: url('https://images.unsplash.com/photo-1629248457649-b082812aea6c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
         <div
@@ -31,9 +30,11 @@
                     <div class="information">
                         <h3 class="text-2xl font-semibold mb-2">{{ $package->name }}</h3>
                         <p class="text-gray-600 mb-4">{{ $package->description }}</p>
-                        <ul class="text-sm text-gray-700 mb-4 list-disc list-inside">
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 text-sm text-gray-700 mb-4 list-disc list-inside">
                             @foreach ($package->facilities ?? [] as $facility)
-                                <li>{{ $facility['facility'] ?? '' }}</li>
+                                <li class="truncate w-full" title="{{ $facility['facility'] ?? '' }}">
+                                    {{ $facility['facility'] ?? '' }}
+                                </li>
                             @endforeach
                         </ul>
 

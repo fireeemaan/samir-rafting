@@ -9,6 +9,6 @@ use App\Models\Package;
 //     return view('welcome');
 // });
 
-Route::get('/', LandingPage::class);
+Route::get('/', LandingPage::class)->name('home');
 
 Route::get('/booking/{package}', BookingForm::class)->name('booking');

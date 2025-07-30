@@ -7,7 +7,7 @@
     @livewireStyles
 </head>
 <body>
-    <div class="container bg-white text-gray-800 font-sans">
+    <div class="container bg-white text-gray-800 font-sans flex justify-center">
         {{ $slot }}
     </div>
     @livewireScripts
