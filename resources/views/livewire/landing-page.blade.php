@@ -12,7 +12,6 @@
         </div>
     </section>
 
-    <!-- Tentang Kami -->
     <section class="py-20 px-6 md:px-20 bg-gray-50 text-center">
         <h2 class="text-4xl font-bold mb-6">Tentang Rafting Samir</h2>
         <p class="text-lg max-w-3xl mx-auto text-gray-600">Kami adalah penyedia rafting profesional yang beroperasi di Sungai
@@ -50,6 +49,25 @@
             @endforeach
         </div>
     </section>
+
+    <section class="py-20 px-6 md:px-20 bg-gray-100">
+        <h2 class="text-4xl font-bold text-center mb-10">Artikel & Tips Seru</h2>
+
+        <div class="flex gap-6 overflow-x-auto scroll-smooth pb-4">
+            @foreach ($articles as $article)
+                <div class="min-w-[300px] max-w-sm bg-white rounded-2xl shadow flex-shrink-0">
+                    <img src="{{ asset('storage/' . $article->images[0]) }}" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">{{ $article->title }}</h3>
+                        <p class="text-gray-600 mb-4">{{ Str::limit($article->body, 100) }}</p>
+                        <a href="#" class="text-yellow-500 font-semibold hover:underline">Baca Selengkapnya</a>
+                    </div>
+                </div>
+            @endforeach
+
+    </section>
+
+
 
     <section class="py-16 px-6 md:px-20 bg-yellow-400 text-center">
         <h2 class="text-3xl font-bold mb-4">Siap Arungi Sungai Samir?</h2>

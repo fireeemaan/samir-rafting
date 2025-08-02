@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -23,5 +24,11 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('a'),
             ]
         );
+
+        Article::factory(5)->create();
+
+        $this->call([
+            PackageSeeder::class,
+        ]);
     }
 }
