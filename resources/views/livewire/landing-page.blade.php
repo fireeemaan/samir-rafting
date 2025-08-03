@@ -1,14 +1,12 @@
 <div class="flex flex-col w-full">
-    <section class="bg-cover bg-center h-screen relative"
-        style="background-image: url('https://images.unsplash.com/photo-1629248457649-b082812aea6c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+    <section class="bg-cover bg-center h-screen relative bg-amber-300"
+        style="background-image: url('{{ asset('storage/01K1B7A89MEZ3Y44Y9ABYHPXK0.jpg') }}');">
         <div
-            class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center px-4">
-            <h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">Rafting Samir</h1>
-            <p class="text-xl md:text-2xl mb-6 max-w-2xl drop-shadow-md">Petualangan seru menyusuri sungai penuh tantangan!
-                Siap basah dan beraksi?</p>
+            class="absolute inset-0 bg-black/50 bg-opacity-50 flex flex-col justify-center items-center text-white text-center px-4">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">{{ $hero->title }}</h1>
+            <p class="text-xl md:text-2xl mb-6 max-w-2xl drop-shadow-md">{{ $hero->subtitle }}</p>
             <a href="#paket"
-                class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-xl transition">Lihat
-                Paket Rafting</a>
+                class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-xl transition">{{ $hero->button_text }}</a>
         </div>
     </section>
 
