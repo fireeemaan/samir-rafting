@@ -20,9 +20,9 @@ class ListHeroes extends ListRecords
     public function mount(): void
     {
         $record = Hero::first() ?? Hero::create([
-            'title' => 'Default Title',
-            'subtitle' => 'Default Subtitle',
-            'button_text' => 'Default Button'
+            'title' => 'Rafting Samir',
+            'subtitle' => 'Petualangan seru menyusuri sungai penuh tantangan! Siap basah dan beraksi?',
+            'button_text' => 'Lihat Paket Rafting'
         ]);
 
         $this->redirect(HeroResource::getUrl('edit', ['record' => $record->getKey()]));

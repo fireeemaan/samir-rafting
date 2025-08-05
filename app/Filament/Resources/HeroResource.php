@@ -24,6 +24,8 @@ class HeroResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\FileUpload::make('hero_image')
+                    ->nullable(),
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
