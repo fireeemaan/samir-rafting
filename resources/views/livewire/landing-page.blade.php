@@ -12,9 +12,12 @@
 
     <section class="py-20 px-6 md:px-20 bg-gray-50 text-center">
         <h2 class="text-4xl font-bold mb-6">Tentang Rafting Samir</h2>
-        <p class="text-lg max-w-3xl mx-auto text-gray-600">Kami adalah penyedia rafting profesional yang beroperasi di Sungai
-            Samir, menawarkan pengalaman arung jeram terbaik bagi pemula maupun petualang berpengalaman. Dengan instruktur
-            berlisensi dan perlengkapan standar internasional, keselamatan dan kesenangan Anda adalah prioritas kami.</p>
+        <p class="text-lg max-w-3xl mx-auto text-gray-600">Kami adalah penyedia rafting profesional yang beroperasi di
+            Sungai
+            Samir, menawarkan pengalaman arung jeram terbaik bagi pemula maupun petualang berpengalaman. Dengan
+            instruktur
+            berlisensi dan perlengkapan standar internasional, keselamatan dan kesenangan Anda adalah prioritas kami.
+        </p>
     </section>
 
 
@@ -23,7 +26,8 @@
         <div class="grid md:grid-cols-2 gap-8">
 
             @foreach ($packages as $package)
-                <div class="bg-gray-100 p-6 rounded-2xl shadow hover:shadow-xl transition flex flex-col justify-between">
+                <div
+                    class="bg-gray-100 p-6 rounded-2xl shadow hover:shadow-xl transition flex flex-col justify-between">
                     <div class="information">
                         <h3 class="text-2xl font-semibold mb-2">{{ $package->name }}</h3>
                         <p class="text-gray-600 mb-4">{{ $package->description }}</p>
@@ -47,6 +51,9 @@
             @endforeach
         </div>
     </section>
+
+    <livewire:review-slider />
+
 
     <section class="py-20 px-6 md:px-20 bg-gray-100">
         <h2 class="text-4xl font-bold text-center mb-10">Artikel & Tips Seru</h2>
