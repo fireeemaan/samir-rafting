@@ -4,7 +4,7 @@
 <head>
     <title>{{ $title ?? 'Samir Rafting' }}</title>
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
@@ -13,7 +13,7 @@
     <div class="text-gray-800 font-sans flex justify-center w-">
         {{ $slot }}
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> --}}
     @livewireScripts
 </body>
 

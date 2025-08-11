@@ -81,7 +81,6 @@
             Sekarang</a>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-10 text-center">
         <p>&copy; 2025 Rafting Samir. All rights reserved.</p>
     </footer>
