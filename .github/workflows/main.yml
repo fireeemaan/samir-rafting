@@ -1,0 +1,104 @@
+name: Deploy Laravel Project
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Add known hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Deploy to VPS
+        env:
+          # This makes PHP_EXEC_CMD available to the runner's shell environment
+          PHP_EXEC_CMD: ${{ secrets.PHP_PATH || 'php' }}
+          # PHP_EXEC_CMD: php
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} << EOF # Note: No quotes around EOF
+            set -e # Exit immediately if a command exits with a non-zero status.
+
+            echo "Target project directory: ${{ secrets.REMOTE_PATH }}"
+            cd "${{ secrets.REMOTE_PATH }}" # Use quotes for safety if path has spaces
+
+            echo "Verifying PHP command (${PHP_EXEC_CMD})..."
+            ${PHP_EXEC_CMD} --version # Test command to ensure PHP is found
+
+            echo "Current directory: $(pwd)"
+            echo "Listing files (to check for artisan):"
+            ls -la
+
+            echo "Activating maintenance mode..."
+            ${PHP_EXEC_CMD} artisan down || true # Allow to fail if already down
+
+            echo "Pulling latest changes from Git..."
+            git pull origin main
+
+            echo "Attempting to source NVM and install frontend dependencies..."
+            export NVM_DIR="\$HOME/.nvm"
+            
+            # Check if nvm.sh exists and source it
+            if [ -s "\$NVM_DIR/nvm.sh" ]; then
+              \. "\$NVM_DIR/nvm.sh"  # Source nvm.sh
+              echo "NVM sourced successfully."
+              echo "Node version: \$(node -v)"
+              echo "npm version: \$(npm -v)"
+
+              echo "Installing frontend dependencies (npm ci)..."
+              npm ci
+
+              echo "Building frontend assets (npm run build)..."
+              npm run build
+
+            else
+              echo "NVM directory or nvm.sh not found at \$NVM_DIR. Frontend dependencies NOT installed."
+            fi
+            
+            echo "Installing Composer dependencies..."
+            # Ensure composer is available, you might need full path or add to deployer's PATH
+            # Example: /usr/local/bin/composer or ~/.composer/vendor/bin/composer
+            composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+
+            echo "Ensuring APP_KEY is set..."
+            if ! grep -q -E "^APP_KEY=\s*(\S|$)" .env || [ -z "$(grep '^APP_KEY=' .env | cut -d '=' -f2-)" ]; then
+                echo "APP_KEY is missing or empty. Generating new key..."
+                ${PHP_EXEC_CMD} artisan key:generate --force 
+            else
+                echo "APP_KEY is already set."
+            fi
+
+            echo "Clearing old caches..."
+            ${PHP_EXEC_CMD} artisan optimize:clear
+
+            echo "Running database migrations..."
+            ${PHP_EXEC_CMD} artisan migrate --force
+
+            echo "Optimizing application..."
+            ${PHP_EXEC_CMD} artisan optimize
+
+            echo "Setting directory permissions..."
+            sudo chown -R www-data:www-data storage bootstrap/cache
+            sudo chmod -R 775 storage bootstrap/cache
+
+            echo "Restarting PHP-FPM..."
+            sudo systemctl restart php8.3-fpm
+
+            echo "Deactivating maintenance mode..."
+            ${PHP_EXEC_CMD} artisan up
+
+            echo "Deployment finished successfully!"
+          EOF
