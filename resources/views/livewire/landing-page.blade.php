@@ -54,6 +54,18 @@
 
     <livewire:review-slider />
 
+    <div x-data="{ open: false }" x-on:open-review-modal.window="open=true" x-on:close-review-modal.window="open=false"
+        x-cloak class="fixed inset-0 z-50 flex items-center justify-center" x-show="open" aria-modal="true"
+        role="dialog">
+        <div class="absolute inset-0 bg-black/50" x-on:click="open=false"></div>
+
+        <div class="relative w-full max-w-2xl mx-auto px-4">
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                <livewire:review.review-form />
+            </div>
+        </div>
+    </div>
+
 
     <section class="py-20 px-6 md:px-20 bg-gray-100">
         <h2 class="text-4xl font-bold text-center mb-10">Artikel & Tips Seru</h2>
@@ -65,7 +77,7 @@
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">{{ $article->title }}</h3>
                         <p class="text-gray-600 mb-4">{{ Str::limit($article->body, 100) }}</p>
-                        <a href="#" class="text-yellow-500 font-semibold hover:underline">Baca Selengkapnya</a>
+                        <a href="{{ route('article.show', $article) }}" class="text-yellow-500 font-semibold hover:underline">Baca Selengkapnya</a>
                     </div>
                 </div>
             @endforeach

@@ -80,7 +80,8 @@ class ReviewResource extends Resource
                     ->action(function (Collection $records) {
                         $records->each->update(['is_accepted' => false]);
                     }),
-            ]);
+            ])
+            ->defaultSort('created_at', 'desc');
     }
 
     public static function getRelations(): array

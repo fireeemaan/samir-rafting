@@ -2,7 +2,7 @@
     <section class="py-20 px-6 md:px-20 bg-white">
         <h2 class="text-4xl font-bold text-center mb-12">Review Pengunjung</h2>
 
-        <div class="swiper reviews-swiper h-[15rem]">
+        <div class="swiper reviews-swiper h-[15rem]" wire:ignore>
             <div class="swiper-wrapper">
                 @foreach ($reviews as $review)
                     <div class="swiper-slide bg-gray-100 p-6 rounded-2xl shadow flex flex-col">
@@ -38,14 +38,14 @@
             </div>
         </div>
         <div class="mt-10 text-center">
-            <a href=""
-                class="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition shadow-lg">
+            <button x-data x-on:click="$dispatch('open-review-modal')"
+                class="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition shadow-lg cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
                 <span class="font-semibold">Tulis Review</span>
-            </a>
+            </button>
         </div>
     </section>
 </div>

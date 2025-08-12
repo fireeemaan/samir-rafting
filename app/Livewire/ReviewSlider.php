@@ -9,6 +9,10 @@ class ReviewSlider extends Component
 {
     public $reviews;
 
+    protected $listeners = [
+        'review-created' => '$refresh'
+    ];
+
     public function mount()
     {
         $this->reviews = Review::where('is_accepted', true)->latest()->get();
