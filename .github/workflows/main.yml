@@ -25,9 +25,7 @@ jobs:
 
       - name: Deploy to VPS
         env:
-          # This makes PHP_EXEC_CMD available to the runner's shell environment
           PHP_EXEC_CMD: ${{ secrets.PHP_PATH || 'php' }}
-          # PHP_EXEC_CMD: php
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} << EOF # Note: No quotes around EOF
             set -e # Exit immediately if a command exits with a non-zero status.
