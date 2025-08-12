@@ -1,6 +1,6 @@
 <div class="flex flex-col w-full">
     <section class="bg-cover bg-center h-screen relative bg-amber-300"
-        style="background-image: url('{{ asset('storage/01K1B7A89MEZ3Y44Y9ABYHPXK0.jpg') }}');">
+        style="background-image: url('{{ asset('storage/' . $hero->hero_image) }}');">
         <div
             class="absolute inset-0 bg-black/50 bg-opacity-50 flex flex-col justify-center items-center text-white text-center px-4">
             <h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">{{ $hero->title }}</h1>
