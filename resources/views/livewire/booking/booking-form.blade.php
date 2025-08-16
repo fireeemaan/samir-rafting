@@ -37,7 +37,7 @@
                 get total() { return this.jumlah * this.harga }
             }">
             <h2 class="text-2xl font-bold mb-4">Form Booking</h2>
-            <form wire:submit.prevent="submit" class="space-y-4">
+            <form wire:submit.prevent="sendWhatsapp" class="space-y-4">
                 <div>
                     <label class="block font-medium mb-1" for="tanggal">Tanggal Booking</label>
                     <input type="date" wire:model="tanggal" name="tanggal"
