@@ -7,6 +7,7 @@
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
+    @filamentStyles
 </head>
 
 <body>
@@ -15,6 +16,7 @@
     </div>
     {{-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> --}}
     @livewireScripts
+    @filamentScripts
 </body>
 
 </html>
