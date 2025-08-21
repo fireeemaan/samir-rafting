@@ -14,10 +14,10 @@ class HeroSeeder extends Seeder
     public function run(): void
     {
         Hero::firstOrCreate(
-            ['title' => 'Rafting Samir'],
+            ['title' => 'Wisata Desa Bantal'],
             [
-                'subtitle' => 'Petualangan seru menyusuri sungai penuh tantangan! Siap basah dan beraksi?',
-                'button_text' => 'Lihat Paket Rafting'
+                'subtitle' => 'Nikmati wisata alam dan arung jeram Sungai Samir di satu destinasi.',
+                'button_text' => 'Lihat Paket'
             ]
 
             );

@@ -29,7 +29,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             PackageSeeder::class,
-            HeroSeeder::class
+            HeroSeeder::class,
+            ReviewSeeder::class
         ]);
     }
 }

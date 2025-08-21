@@ -17,40 +17,34 @@ class PackageSeeder extends Seeder
 
         $packages = [
             [
-                'name' => 'Paket Ceria Rafting Samir (Pemula)',
-                'price' => 250000,
+                'name' => 'Rafting Samir',
+                'price' => 150000,
                 'description' => 'Rasakan keseruan mengarungi jeram Sungai Samir yang aman untuk pemula dan keluarga. Nikmati pemandangan alam pedesaan Situbondo yang asri di sepanjang rute pendek yang menyegarkan. Cocok untuk pengalaman arung jeram pertama Anda.',
                 'thumbnail' => 'thumbnails/rafting-ceria.jpg',
                 'facilities' => json_encode([
                     ['facility' => 'Perlengkapan arung jeram standar'],
                     ['facility' => 'Pemandu profesional'],
-                    ['facility' => 'Asuransi'],
-                    ['facility' => 'Kelapa muda segar setelah finish'],
+                    ['facility' => 'Fotografer & videografer profesional'],
+                    ['facility' => 'Makan'],
                     ['facility' => 'Transportasi lokal ke start point']
                 ]),
             ],
             [
-                'name' => 'Paket Petualang Rafting Samir (Menengah)',
-                'price' => 375000,
-                'description' => 'Bagi Anda yang mencari tantangan lebih, paket ini menawarkan rute yang lebih panjang dengan jeram-jeram yang lebih menantang. Pacu adrenalin Anda dan taklukkan arus Sungai Samir bersama tim yang solid. Pengalaman seru yang tak terlupakan!',
-                'thumbnail' => 'thumbnails/rafting-petualang.jpg',
+                'name' => 'Wisata Gunung Panceng',
+                'price' => 0,
+                'description' => 'Wisata Gunung Panceng menawarkan suasana asri dengan panorama alam yang memikat. Dari puncaknya, pengunjung dapat menikmati momen matahari terbit maupun terbenam yang indah, menjadikannya spot favorit untuk bersantai dan berfoto.',
+                'thumbnail' => 'thumbnails/wisata-panceng.jpg',
                 'facilities' => json_encode([
-                    ['facility' => 'Semua fasilitas Paket Ceria'],
-                    ['facility' => 'Makan siang prasmanan khas lokal'],
-                    ['facility' => 'Dokumentasi foto dan video'],
-                    ['facility' => 'Snack dan air mineral']
+                    ['facility' => 'Spot sunset / sunrise'],
                 ]),
             ],
             [
-                'name' => 'Paket Ekstrem Rafting Samir (Profesional)',
-                'price' => 550000,
-                'description' => 'Taklukkan rute terpanjang dan jeram paling ganas di Sungai Samir! Paket ini dirancang khusus untuk para pecandu adrenalin dan rafter berpengalaman. Didampingi oleh tim penyelamat ahli, rasakan sensasi maksimal dari hulu hingga hilir sungai.',
-                'thumbnail' => 'thumbnails/rafting-ekstrem.jpg',
+                'name' => 'Bukit Samir',
+                'price' => 0,
+                'description' => 'Bukit Samir menghadirkan pemandangan terbuka yang menenangkan, cocok untuk melepas penat sejenak. Keindahan sunrise dan sunset dari bukit ini memberikan pengalaman berkesan sekaligus latar foto yang menawan.',
+                'thumbnail' => 'thumbnails/bukit-samir.jpg',
                 'facilities' => json_encode([
-                    ['facility' =>'Semua fasilitas Paket Petualang'],
-                    ['facility' => 'Pemandu dan tim rescue khusus'],
-                    ['facility' => 'Sertifikat penakluk jeram'],
-                    ['facility' => 'Welcome drink dan souvenir eksklusif']
+                    ['facility' => 'Spot sunset / sunrise'],
                 ]),
             ],
         ];
