@@ -15,16 +15,16 @@ class TrustProxies extends Middleware
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
 
-    protected $proxies = '*';
-    protected $headers = Request::HEADER_X_FORWARDED_FOR |
-                        Request::HEADER_X_FORWARDED_HOST |
-                        Request::HEADER_X_FORWARDED_PORT |
-                        Request::HEADER_X_FORWARDED_PROTO |
-                        Request::HEADER_X_FORWARDED_PREFIX |
-                        Request::HEADER_X_FORWARDED_TRAEFIK;
+    // protected $proxies = '*';
+    // protected $headers = Request::HEADER_X_FORWARDED_FOR |
+    //                     Request::HEADER_X_FORWARDED_HOST |
+    //                     Request::HEADER_X_FORWARDED_PORT |
+    //                     Request::HEADER_X_FORWARDED_PROTO |
+    //                     Request::HEADER_X_FORWARDED_PREFIX |
+    //                     Request::HEADER_X_FORWARDED_TRAEFIK;
 
-    public function handle(Request $request, Closure $next): Response
-    {
-        return $next($request);
-    }
+    // public function handle(Request $request, Closure $next): Response
+    // {
+    //     return $next($request);
+    // }
 }
