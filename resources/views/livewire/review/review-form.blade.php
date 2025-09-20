@@ -65,3 +65,10 @@
 
     </form>
 </div>
+
+<script>
+    // Debug script
+    console.log('Page loaded, looking for swiper element...');
+    console.log('Swiper element found:', document.querySelector('.reviews-swiper'));
+    console.log('Number of slides:', document.querySelectorAll('.swiper-slide').length);
+</script>
