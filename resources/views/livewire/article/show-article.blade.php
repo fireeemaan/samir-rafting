@@ -50,7 +50,7 @@
 
                     {{-- Konten artikel --}}
                     <div class="prose prose-lg max-w-none prose-img:rounded-xl">
-                        {!! clean($article->body) !!}
+                        {!! $article->body !!}
                     </div>
 
                     {{-- Tag --}}
