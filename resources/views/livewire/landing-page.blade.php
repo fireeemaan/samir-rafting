@@ -127,7 +127,7 @@
                         alt="{{ $article->title }}">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">{{ $article->title }}</h3>
-                        <p class="text-gray-600 mb-4">{{ Str::limit($article->body, 100) }}</p>
+                        <p class="text-gray-600 mb-4">{{ Str::limit(Str::of($article->body_html ?: $article->body)->stripTags()->squish(), 100) }}</p>
                         <a href="{{ route('article.show', $article) }}"
                             class="text-yellow-500 font-semibold hover:underline">Baca Selengkapnya</a>
                     </div>
