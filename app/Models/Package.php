@@ -14,7 +14,8 @@ class Package extends Model
         'price',
         'description',
         'thumbnail',
-        'facilities'
+        'facilities',
+        'location_url'
     ];
 
     protected $casts = [

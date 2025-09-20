@@ -53,7 +53,14 @@ class PackageResource extends Resource
 
                 FileUpload::make("thumbnail")
                     ->image()
+                    ->nullable()
                     ->previewable(false),
+
+                TextInput::make('location_url')
+                    ->label('Location URL (Google Maps)')
+                    ->url()
+                    ->placeholder('https://www.google.com/maps/place/...')
+                    ->nullable(),
 
                 Repeater::make('facilities')
                     ->schema([
