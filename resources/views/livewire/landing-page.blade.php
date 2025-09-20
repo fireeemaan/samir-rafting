@@ -127,7 +127,9 @@
                         alt="{{ $article->title }}">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">{{ $article->title }}</h3>
-                        <p class="text-gray-600 mb-4">{{ Str::limit(Str::of($article->body_html ?: $article->body)->stripTags()->squish(), 100) }}</p>
+                        <p class="text-gray-600 mb-4">
+                            {{ Str::limit(Str::of($article->body_html ?: $article->body)->stripTags()->squish(),100) }}
+                        </p>
                         <a href="{{ route('article.show', $article) }}"
                             class="text-yellow-500 font-semibold hover:underline">Baca Selengkapnya</a>
                     </div>
@@ -145,7 +147,99 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-900 text-white py-10 text-center">
-        <p>&copy; 2025 Desa Wisata Bantal. Semua hak dilindungi.</p>
+    <!-- FOOTER -->
+    <footer class="relative bg-gray-900 text-gray-200">
+        <!-- Decorative top border/stripe -->
+        <div class="h-1 w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400"></div>
+
+        <div class="px-6 md:px-20 py-14">
+            <div class="grid gap-10 md:grid-cols-3 max-w-6xl mx-auto">
+                <!-- Brand -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white">Desa Wisata Bantal</h3>
+                    <p class="mt-3 text-gray-400">
+                        Wisata terpadu di tepi Sungai Samir: arung jeram, jelajah alam & kuliner khas.
+                    </p>
+                    <div class="mt-5 flex items-center gap-3">
+                        <!-- Instagram -->
+                        <a href="https://instagram.com/samirrafting.situbondo" target="_blank" rel="noopener"
+                            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 hover:bg-white/10 transition">
+                            <!-- IG icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.51 5.51 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM17.75 6a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.75 6z" />
+                            </svg>
+                            <span class="font-semibold">@samirrafting.situbondo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white">Jelajah</h4>
+                    <ul class="mt-4 space-y-2 text-gray-300">
+                        <li><a href="#paket" class="hover:text-amber-400 transition">Paket Wisata</a></li>
+                        <li><a href="#galeri" class="hover:text-amber-400 transition">Galeri Desa</a></li>
+                        <li><a href="#artikel" class="hover:text-amber-400 transition">Artikel & Tips</a></li>
+                        <li><a href="#" class="hover:text-amber-400 transition">Tentang</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact / CTA -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white">Kontak</h4>
+                    <p class="mt-4 text-gray-300">Nomor HP: <span
+                            class="font-semibold text-white">+6285231353030</span></p>
+
+                    <div class="mt-5 flex flex-wrap gap-3">
+                        <!-- WhatsApp CTA -->
+                        <a href="https://wa.me/6285231353030?text=Halo%20Desa%20Wisata%20Bantal%2C%20saya%20ingin%20tanya%20soal%20paket%20wisata."
+                            target="_blank" rel="noopener"
+                            class="inline-flex items-center gap-2 rounded-xl bg-yellow-400 px-5 py-2.5 font-semibold text-black hover:bg-yellow-500 transition">
+                            <!-- phone icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+                                fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17.79 17.79 0 0 1 3 6a1 1 0 0 1 1-1h3.61a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.56 1 1 0 0 1-.24 1.02l-2.32 2.21z" />
+                            </svg>
+                            WhatsApp Sekarang
+                        </a>
+
+                        <!-- Call -->
+                        <a href="tel:+6285231353030"
+                            class="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-2.5 font-semibold hover:bg-white/10 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+                                fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.56.57 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A17.79 17.79 0 0 1 3 6a1 1 0 0 1 1-1h3.61a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.56 1 1 0 0 1-.24 1.02l-2.32 2.21z" />
+                            </svg>
+                            Telepon
+                        </a>
+                    </div>
+
+                    <!-- Small note -->
+                    <p class="mt-3 text-sm text-gray-400">
+                        IG: <a href="https://instagram.com/samirrafting.situbondo" target="_blank" rel="noopener"
+                            class="hover:text-amber-400">@samirrafting.situbondo</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom mini-bar -->
+        <div class="border-t border-white/10">
+            <div
+                class="px-6 md:px-20 py-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+                <p class="text-sm text-gray-400">&copy; {{ now()->year }} Desa Wisata Bantal. Semua hak dilindungi.
+                </p>
+                <div class="flex items-center gap-4 text-sm">
+                    <a href="#paket" class="hover:text-amber-400 transition">Paket</a>
+                    <a href="#galeri" class="hover:text-amber-400 transition">Galeri</a>
+                    <a href="#artikel" class="hover:text-amber-400 transition">Artikel</a>
+                </div>
+            </div>
+        </div>
     </footer>
+
 </div>
