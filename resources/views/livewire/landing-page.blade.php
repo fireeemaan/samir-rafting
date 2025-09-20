@@ -50,19 +50,20 @@
                         @endif
 
                         <div class="flex items-center gap-2 ml-auto">
-                            {{-- TOMBOL PESAN: hanya jika harga > 0 --}}
-                            @if ($package->price > 0)
-                                <a href="{{ route('booking', $package) }}"
-                                    class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-4 py-2 rounded-full">
-                                    Pesan
-                                </a>
-                            @endif
 
                             {{-- TOMBOL LOKASI: muncul jika location_url tidak null/kosong --}}
                             @if (!empty($package->location_url))
                                 <a href="{{ $package->location_url }}" target="_blank" rel="noopener"
                                     class="inline-block bg-white border border-gray-300 hover:bg-gray-100 text-gray-800 font-semibold px-4 py-2 rounded-full">
                                     Lihat Lokasi
+                                </a>
+                            @endif
+
+                            {{-- TOMBOL PESAN: hanya jika harga > 0 --}}
+                            @if ($package->price > 0)
+                                <a href="{{ route('booking', $package) }}"
+                                    class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-4 py-2 rounded-full">
+                                    Pesan
                                 </a>
                             @endif
                         </div>
