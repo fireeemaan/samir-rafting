@@ -50,7 +50,7 @@
 
                     {{-- Konten artikel --}}
                     <div class="prose prose-lg max-w-none prose-img:rounded-xl">
-                        {!! $article->body_html ?? nl2br(e($article->body)) !!}
+                        {!! clean($article->body) !!}
                     </div>
 
                     {{-- Tag --}}
