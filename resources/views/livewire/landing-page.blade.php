@@ -29,10 +29,19 @@
         <h2 class="text-4xl font-bold text-center mb-12">Paket Wisata Desa Bantal</h2>
         <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             @foreach ($packages as $package)
-                <div class="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-xl transition flex flex-col justify-between">
+                <div
+                    class="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-xl transition flex flex-col justify-between overflow-hidden">
                     <div>
+                        {{-- THUMBNAIL --}}
+                        <div class="mb-4 -mx-6 -mt-6">
+                            <img src="{{ !empty($package->thumbnail) ? asset('storage/' . $package->thumbnail) : 'https://placehold.co/600x400?text=' . urlencode($package->name) }}"
+                                alt="Thumbnail {{ $package->name }}" class="w-full h-48 md:h-56 object-cover"
+                                loading="lazy">
+                        </div>
+
                         <h3 class="text-2xl font-semibold mb-2">{{ $package->name }}</h3>
                         <p class="text-gray-600 mb-4">{{ $package->description }}</p>
+
                         <ul class="grid grid-cols-1 sm:grid-cols-2 text-sm text-gray-700 mb-4 list-disc list-inside">
                             @foreach ($package->facilities ?? [] as $facility)
                                 <li class="truncate w-full" title="{{ $facility['facility'] ?? '' }}">
@@ -41,6 +50,7 @@
                             @endforeach
                         </ul>
                     </div>
+
                     <div class="flex items-center justify-between mt-4 w-full">
                         {{-- Tampilkan harga hanya jika lebih dari 0 --}}
                         @if ($package->price > 0)
@@ -50,8 +60,7 @@
                         @endif
 
                         <div class="flex items-center gap-2 ml-auto">
-
-                            {{-- TOMBOL LOKASI: muncul jika location_url tidak null/kosong --}}
+                            {{-- TOMBOL LOKASI --}}
                             @if (!empty($package->location_url))
                                 <a href="{{ $package->location_url }}" target="_blank" rel="noopener"
                                     class="inline-block bg-white border border-gray-300 hover:bg-gray-100 text-gray-800 font-semibold px-4 py-2 rounded-full">
@@ -59,7 +68,7 @@
                                 </a>
                             @endif
 
-                            {{-- TOMBOL PESAN: hanya jika harga > 0 --}}
+                            {{-- TOMBOL PESAN --}}
                             @if ($package->price > 0)
                                 <a href="{{ route('booking', $package) }}"
                                     class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-4 py-2 rounded-full">
@@ -68,11 +77,11 @@
                             @endif
                         </div>
                     </div>
-
                 </div>
             @endforeach
         </div>
     </section>
+
 
 
     <!-- TESTIMONI -->
