@@ -147,7 +147,6 @@
     </section>
 
     <!-- FOOTER -->
-    <!-- FOOTER -->
     <footer class="relative bg-gray-900 text-gray-200">
         <!-- Decorative top border/stripe -->
         <div class="h-1 w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400"></div>
@@ -197,7 +196,6 @@
                         <a href="https://wa.me/6285231353030?text=Halo%20Desa%20Wisata%20Bantal%2C%20saya%20ingin%20tanya%20soal%20paket%20wisata."
                             target="_blank" rel="noopener"
                             class="inline-flex items-center gap-2 rounded-xl bg-yellow-400 px-5 py-2.5 font-semibold text-black hover:bg-yellow-500 transition">
-                            <!-- phone icon -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
                                 fill="currentColor" aria-hidden="true">
                                 <path
@@ -216,9 +214,20 @@
                             </svg>
                             Telepon
                         </a>
+
+                        <!-- Website Desa -->
+                        <a href="https://bantal.desa.id/" target="_blank" rel="noopener"
+                            class="inline-flex items-center gap-2 rounded-xl border border-amber-400/40 bg-amber-400/10 px-5 py-2.5 font-semibold hover:bg-amber-400/20 transition">
+                            <!-- globe icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+                                fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2Zm0 2c1.43 0 2.75.37 3.9 1H8.1A7.96 7.96 0 0 1 12 4Zm-6.32 3h12.64c.43.62.77 1.3 1 2H4.68c.23-.7.57-1.38 1-2Zm-1.3 4h15.24c.05.33.08.66.08 1s-.03.67-.08 1H4.38a8.6 8.6 0 0 1-.08-2Zm.3 4h14.64c-.23.7-.57 1.38-1 2H5.68c-.43-.62-.77-1.3-1-2ZM8.1 19h7.8A7.96 7.96 0 0 1 12 20c-1.43 0-2.75-.37-3.9-1Z" />
+                            </svg>
+                            Kunjungi Website Desa
+                        </a>
                     </div>
 
-                    <!-- Small note -->
                     <p class="mt-3 text-sm text-gray-400">
                         IG: <a href="https://instagram.com/samirrafting.situbondo" target="_blank" rel="noopener"
                             class="hover:text-amber-400">@samirrafting.situbondo</a>
@@ -237,9 +246,12 @@
                     <a href="#paket" class="hover:text-amber-400 transition">Paket</a>
                     <a href="#galeri" class="hover:text-amber-400 transition">Galeri</a>
                     <a href="#artikel" class="hover:text-amber-400 transition">Artikel</a>
+                    <a href="https://bantal.desa.id/" target="_blank" rel="noopener"
+                        class="hover:text-amber-400 transition">Website Desa</a>
                 </div>
             </div>
         </div>
     </footer>
+
 
 </div>
