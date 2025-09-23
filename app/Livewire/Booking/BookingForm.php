@@ -12,7 +12,7 @@ class BookingForm extends Component
     public $jumlah = 1;
     public $tanggal, $nama, $email, $hp;
 
-    public string $target_phone = '6281329994186';
+    public string $target_phone = '6285231353030';
 
     public function getTotalProperty() {
         return $this->jumlah * $this->package->price;
