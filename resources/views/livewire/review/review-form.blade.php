@@ -15,7 +15,7 @@
         <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">Rating</label>
 
-            <div x-data="{ localRating: @entangle('rating').defer }" class="flex items-center gap-2 select-none">
+            <div x-data="{ localRating: @entangle('rating').live }" class="flex items-center gap-2 select-none">
                 @for ($i = 1; $i <= 5; $i++)
                     <button type="button" x-on:click="localRating = {{ $i }}"
                         class="focus:outline-none cursor-pointer" aria-label="Set rating {{ $i }}">

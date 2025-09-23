@@ -31,7 +31,7 @@ class ReviewForm extends Component
 
         Review::create([
             'name' => $this->name,
-            'rating' => $this->rating,
+            'rating' => (int) $this->rating,
             'comment' => $this->comment
         ]);
 

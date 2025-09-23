@@ -31,9 +31,17 @@ class ReviewResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name'),
-                Select::make('rating')->options([1,2,3,4,5])->required(),
+                Select::make('rating')
+                    ->options([
+                        1 => '1',
+                        2 => '2',
+                        3 => '3',
+                        4 => '4',
+                        5 => '5',
+                    ])
+                    ->required(),
                 Textarea::make('comment')->required(),
-                Toggle::make('is_approved')
+                Toggle::make('is_accepted')->label('Accepted')->inline(false),
             ]);
     }
 
