@@ -21,11 +21,11 @@ class LogVisit
     {
         $response = $next($request);
 
-        Log::info('Logged!');
 
         if ($request->method() !== 'GET' || !$request->acceptsHtml()) {
             return $response;
         }
+        Log::info('Logged!');
 
         $ua = $request->userAgent() ?? '';
         $isBot = preg_match('/bot|spider|crawler|preview|slurp|curl|wget/i', $ua) === 1;
