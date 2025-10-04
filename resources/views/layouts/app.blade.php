@@ -5,6 +5,7 @@
     <title>{{ $title ?? 'Wisata Desa Bantal' }}</title>
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> --}}
+    @stack('styles')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     @filamentStyles

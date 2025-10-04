@@ -25,7 +25,12 @@ class PackageResource extends Resource
 {
     protected static ?string $model = Package::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-gift-top';
+
+    public static function getNavigationSort(): ?int
+    {
+        return 3;
+    }
 
     public static function form(Form $form): Form
     {

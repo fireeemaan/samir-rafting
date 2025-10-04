@@ -1,6 +1,11 @@
-<div class="flex flex-col w-full">
+@push('styles')
+<style>
+  h2 { font-size: 1.5rem; font-weight: 700 }
+  h3 { font-size: 1.2rem; font-weight: 500 }
+</style>
+@endpush
 
-    {{-- Header mini ala portal --}}
+<div class="flex flex-col w-full">
     <section class="bg-gray-100 border-b border-gray-200">
         <div class="px-6 md:px-20 py-4 flex items-center justify-between">
             <div class="text-sm text-gray-600  ">
@@ -36,7 +41,6 @@
                             class="w-full max-w-4xl mx-auto rounded-xl shadow mb-6 object-cover h-[30rem]">
                     @endif
 
-                    {{-- Judul & meta --}}
                     <h1 class="text-3xl md:text-4xl font-bold mb-4">{{ $article->title }}</h1>
                     <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-6">
                         <span>{{ $article->created_at->translatedFormat('d F Y') }}</span>
@@ -48,12 +52,11 @@
                         @endif
                     </div>
 
-                    {{-- Konten artikel --}}
+
                     <div class="prose prose-lg max-w-none prose-img:rounded-xl">
                         {!! $article->body !!}
                     </div>
 
-                    {{-- Tag --}}
                     @if (!empty($article->tags) && count($article->tags))
                         <div class="mt-8 flex flex-wrap gap-2">
                             @foreach ($article->tags as $tag)
